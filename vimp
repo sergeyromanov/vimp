@@ -14,5 +14,9 @@ if [ ! -d "$VIM_HOME/bundle" ]; then
   mkdir "$VIM_HOME/bundle"
 fi
 
-curl -Sso ~/.vim/autoload/pathogen.vim \
+curl -Sso "$VIM_HOME/autoload/pathogen.vim" \
   https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+
+cd "$VIM_HOME/bundle"
+
+git clone https://github.com/$1
