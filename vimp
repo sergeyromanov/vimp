@@ -1,0 +1,18 @@
+#!/bin/bash
+
+VIM_HOME=~/.vim
+
+if [ ! -d "$VIM_HOME" ]; then
+  mkdir $VIM_HOME
+fi
+
+if [ ! -d "$VIM_HOME/autoload" ]; then
+  mkdir "$VIM_HOME/autoload"
+fi
+
+if [ ! -d "$VIM_HOME/bundle" ]; then
+  mkdir "$VIM_HOME/bundle"
+fi
+
+curl -Sso ~/.vim/autoload/pathogen.vim \
+  https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
