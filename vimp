@@ -2,20 +2,13 @@
 
 VIM_HOME=~/.vim
 
-if [ ! -d "$VIM_HOME" ]; then
-  mkdir $VIM_HOME
+if [ ! -e "$VIM_HOME/autoload/pathogen.vim" ]; then
+  mkdir -p "$VIM_HOME/autoload"
+  curl -Sso "$VIM_HOME/autoload/pathogen.vim" \
+    https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 fi
 
-if [ ! -d "$VIM_HOME/autoload" ]; then
-  mkdir "$VIM_HOME/autoload"
-fi
-
-if [ ! -d "$VIM_HOME/bundle" ]; then
-  mkdir "$VIM_HOME/bundle"
-fi
-
-curl -Sso "$VIM_HOME/autoload/pathogen.vim" \
-  https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+mkdir -p "$VIM_HOME/bundle"
 
 cd "$VIM_HOME/bundle"
 
